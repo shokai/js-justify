@@ -13,4 +13,4 @@
 
 ## デモ
 
-[http://shokai.org/tmp/jastify/](http://shokai.org/tmp/jastify/)
+[http://shokai.org/tmp/justify/](http://shokai.org/tmp/justify/)

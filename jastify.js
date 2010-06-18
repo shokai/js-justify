@@ -10,12 +10,16 @@ $('textarea#edit').live("keyup change click", function(e){
 function render(space){
     console.log("render()");
     var str = $('textarea#edit').val();
-    var lines = str.split("\n");
+    var lines = str.split(/[\r\n]/);
     var data = new Array();
     var max = 0;
     for(var i = 0; i < lines.length; i++){
-	var words = lines[i].split(" ");
-	data.push(words);
+	var tmp = lines[i].split(/\s+/);
+	var words = new Array();
+	for(var j = 0; j < tmp.length; j++){
+	    if(tmp[j].length>0) words.push(tmp[j]);
+	}
+	data.push(tmp);
 	if(max < words.length) max = words.length;
     }
     console.log(data);

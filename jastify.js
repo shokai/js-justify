@@ -1,10 +1,12 @@
 
-console.log("start");
-
-
-$('textarea#edit').live("keyup change click", function(e){
+$(function(){
+	console.log("start");
 	render(20);
+	$('textarea#edit').bind("keyup change click", function(e){
+		render(20);
+	    });
     });
+
 
 // 文字間を指定して描画
 function render(space){

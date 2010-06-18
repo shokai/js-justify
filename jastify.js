@@ -48,17 +48,21 @@ function render(space){
 	var offsets = new Array();
 
 	for(var i = 0; i < data.length; i++){
-	    var offset = poses[i][j-1]+data[i][j-1].width();
-	    offsets.push(offset);
-	    if(max_offset < offset) max_offset = offset;
+	    if(data[i][j-1] != null){
+		var offset = poses[i][j-1]+data[i][j-1].width();
+		offsets[i] = offset;
+		if(max_offset < offset) max_offset = offset;
+	    }
 	}
 	for(var i = 0; i < data.length; i++){
-	    var w = $('#word'+i+'_'+j);
-	    w.css("margin","0px");
-	    w.css("padding","0px");
-	    var pos = max_offset-offsets[i]+space;
-	    w.css("margin-left", pos);
-	    poses[i][j] = pos + poses[i][j-1] + data[i][j-1].width();
+	    if(data[i][j] != null){
+		var w = $('#word'+i+'_'+j);
+		w.css("margin","0px");
+		w.css("padding","0px");
+		var pos = max_offset-offsets[i]+space;
+		w.css("margin-left", pos);
+		poses[i][j] = pos + poses[i][j-1] + data[i][j-1].width();
+	    }
 	}
     }
     console.log(poses);

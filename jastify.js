@@ -1,4 +1,6 @@
 
+var log = false;
+
 $(function(){
 	trace("start");
 	render(20);
@@ -86,5 +88,5 @@ String.prototype.width = function(){
 };
 
 function trace(message){
-    if(console != null) console.log(message);
+    if(log) console.log(message);
 };

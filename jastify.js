@@ -1,6 +1,6 @@
 
 $(function(){
-	console.log("start");
+	trace("start");
 	render(20);
 	$('textarea#edit').bind("keyup change click", function(e){
 		render(20);
@@ -10,7 +10,7 @@ $(function(){
 
 // 単語間のspaceを指定して描画
 function render(space){
-    console.log("render()");
+    trace("render()");
     var str = $('textarea#edit').val();
     var lines = str.split(/[\r\n]/);
     var data = new Array();
@@ -24,7 +24,7 @@ function render(space){
 	data.push(tmp);
 	if(max < words.length) max = words.length;
     }
-    console.log(data);
+    trace(data);
 
     // 表示する時の入れ物を用意しておく
     $('div#display').html('');
@@ -71,7 +71,7 @@ function render(space){
 	    }
 	}
     }
-    console.log(poses);
+    trace(poses);
 
 };
 
@@ -83,4 +83,8 @@ String.prototype.width = function(){
     var width = box.offsetWidth;
     box.innerHTML = "";
     return width;
-}
+};
+
+function trace(message){
+    if(console != null) console.log(message);
+};

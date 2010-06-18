@@ -8,7 +8,7 @@ $(function(){
     });
 
 
-// 文字間を指定して描画
+// 単語間のspaceを指定して描画
 function render(space){
     console.log("render()");
     var str = $('textarea#edit').val();
